@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>GRASS GIS manual: r.openness</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="grassdocs.css" type="text/css">
+</head>
+<body bgcolor="white">
+
+<img src="grass_logo.png" alt="GRASS logo"><hr align=center size=6 noshade>
+
+<h2>NAME</h2>
+<em><b>r.openness</b></em>  - Calculate different approaches to the openness parameter (Yokoyama et al., 2002)
+<h2>KEYWORDS</h2>
+raster, focal, geomorphometry
+<h2>SYNOPSIS</h2>
+<b>r.openness</b><br>
+<b>r.openness help</b><br>
+<b>r.openness</b> <b>elev</b>=<em>name</em> <b>flowdir</b>=<em><em>name</em> <b>popenness8</b>=<em>name</em>
+   <b>popennesstot</b>=<em>name</em> <b>popennessup</b>=<em>name</em> <b>popennessdn</b>=<em>name</em>
+   <b>popennessbn</b>=<em>name</em> <b>nopenness8</b>=<em>name</em> <b>nopennesstot</b>=<em>name</em>
+   <b>nopennessup</b>=<em>name</em> <b>nopennessdn</b>=<em>name</em> <b>nopennessbn</b>=<em>name</em> <b>size</b>=<em>value
+   <b>mode</b>=<em>value</em>
+
+
+
+<h3>Flags:</h3>
+<DL>
+<DT><b>--overwrite</b></DT>
+<DD>Allow output files to overwrite existing files</DD>
+<DT><b>--verbose</b></DT>
+<DD>Verbose module output</DD>
+<DT><b>--quiet</b></DT>
+<DD>Quiet module output</DD>
+</DL>
+
+<h3>Parameters:</h3>
+<DL>
+<DT><b>elev</b>=<em>name</em></DT>
+<DD>Name of the MDE raster map</DD>
+
+<DT><b>flowdir</b>=<em>name</em></DT>
+<DD>Name of a second input raster map with the flow directions needed to calcula openness in different directions</DD>
+
+<DT><b>popenness8</b>=<em>name</em></DT>
+<DD>Positive Openness calculated with the 8 main directions</DD>
+
+<DT><b>popennesstot</b>=<em>name</em></DT>
+<DD>Positive Openness calculated with all directions</DD>
+
+<DT><b>popennessup</b>=<em>name</em></DT>
+<DD>Positive Openness calculated in the upslope direction</DD>
+
+<DT><b>popennessdn</b>=<em>name</em></DT>
+<DD>Positive Openness calculated in the downslope direction</DD>
+
+<DT><b>popennessbn</b>=<em>name</em></DT>
+<DD>Positive Openness calculated in the direction transverse to the flow</DD>
+
+<DT><b>nopenness8</b>=<em>name</em></DT>
+<DD>Negative Openness calculated with the 8 main directions</DD>
+
+<DT><b>nopennesstot</b>=<em>name</em></DT>
+<DD>Negative Openness calculated with all directions</DD>
+
+<DT><b>nopennessup</b>=<em>name</em></DT>
+<DD>Negative Openness calculated in the upslope direction</DD>
+
+<DT><b>nopennessdn</b>=<em>name</em></DT>
+<DD>Negative Openness calculated in the downslope direction</DD>
+
+<DT><b>nopennessbn</b>=<em>name</em></DT>
+<DD>Negative Openness calculated in the direction transverse to the flow</DD>
+
+
+<DT><b>size</b>=<em>integer</em></DT>
+<DD>window size</DD>
+
+<DT><b>mode</b>=<em>integer</em></DT>
+<DD>window shape</DD>
+
+</DL>
+
+<h2>DESCRIPTION</h2>
+
+<p>Yokoyama et al. (2002) presented a multi-scale geomorphometric feature called openness, as the average of the zenith (positive openness) or nadir (negative openness) angles along the main eight compass directions (N, NE, E, SE, S, SW, W, NW). Jasiewicz and Stepinski (2013) used this feature, with a slight modification when calculating negative openness. According to the original authors, openness expresses a topographic attribute possibly not measured by other features.</p>
+
+<p>The approach in this module is different as all the directions available for a given window size (w) are used to calculate the avarages; the nuber of directions available is 4(w-1). However, the module also allows to calculate openness with the original 8 directios approach. In addition, this module can calculate both positive and negative openness in the downslope, upslope and transverse to the flow directions. To do so, the user should provide a map of flow directions.</p>
+
+<p>The user can select which types of output maps will be produced, the window size and the window shape: 1 (default) for square and 2 for circle. If mode=2 size is the diameter of the circle.</p>
+
+<p>The details of the algorithms are described in a paper submited to Computers & Geosciences.</p>
+
+<h2>REFERENCES</h2>
+<ul>
+<li>Alonso-Sarría, F.; Gomariz-Castillo, F.;  Cánovas-García, F. (submitted) A new approach to the Openness index for landform characterisation. <i>Computers & Geosciences</i> 
+
+<li>Jasiewicz, J.; Stepinski, T. (2013) Geomorphons: a pattern recognition approach to classification and mapping of landforms.<i> Geomorphology</i> 182, 147-156.
+
+<li>Yokoyama, R., Shlrasawa, M., Pike, R., 2002. Visualizing Topography by Openness: A New Application of Image Processing to Digital Elevation Models. <i>Photogrammetric Engineering & Remote Sensing</i> 68 (3), 257-265.
+
+</ul>
+
+<HR>
+<P><a href="index.html">Main index</a> - <a href="raster.html">raster index</a> - <a href="full_index.html">Full index</a></P>
+<P>&copy; 2003-2009 <a href="http://grass.osgeo.org">GRASS Development Team</a></p>
+
+
+
+
+
+
+
+
+</body>
+</html>
