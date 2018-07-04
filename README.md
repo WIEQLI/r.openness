@@ -12,4 +12,6 @@ If you want to use the precompiled GRASS 7.2.1 module:
 
 1. Copy the file *r.openness* in $GRASS_DIST/bin
 
+A larger description can be found in:
 
+Francisco Alonso-Sarría, Francisco Gomariz-Castillo, Fulgencio Cánovas-García (in press) "A new approach to the openness index for landform characterisation" Computers & Geosciences.
